@@ -100,14 +100,12 @@ class DashboardScreenState extends State<DashboardScreen> {
     return Row(
       children: <Widget>[
         Expanded(
-          child: OutlineButton(
-            highlightElevation: 10,
+          child: FlatButton(
             shape: new RoundedRectangleBorder(
               borderRadius: new BorderRadius.circular(20.0),
             ),
-            color: Colors.blue,
-            highlightColor: Colors.blueAccent,
-            highlightedBorderColor: Colors.blueAccent,
+            color: Colors.blueGrey,
+            highlightColor: Colors.white54,
             onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -121,7 +119,11 @@ class DashboardScreenState extends State<DashboardScreen> {
                 child: Text(
                   title,
                   textAlign: TextAlign.start,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
