@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_implicit_animations/widgets/appbar.dart';
+import 'package:flutter_implicit_animations/widgets/header.dart';
 
 class AnimatedContainerScreen extends StatefulWidget {
   static String SCREEN_TITLE = "AnimatedContainer";
@@ -15,7 +16,7 @@ class AnimatedContainerScreen extends StatefulWidget {
 }
 
 class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
-  final int _animationDuration = 2000;
+  final int _animationDuration = 1000;
   Color _backgroundColor = Colors.blueGrey;
   double _height = 300;
   double _width = 300;
@@ -36,22 +37,10 @@ class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
             padding: EdgeInsets.all(20),
             child: Column(
               children: <Widget>[
-                Text(
-                  'AnimatedContainer',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blueGrey,
-                  ),
-                ),
-                Text(
-                  'A container that gradually changes its values over a period of time.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.blueGrey,
-                  ),
+                Header(
+                  title: 'AnimatedBuilder',
+                  description:
+                      'A container that gradually changes its values over a period of time.',
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 Text(
