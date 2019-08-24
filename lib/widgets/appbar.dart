@@ -22,14 +22,19 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       title: Text(
         title,
         style: TextStyle(
-          color: Colors.black54,
+          color: Colors.blueGrey,
           fontWeight: FontWeight.bold,
         ),
       ),
-      leading: isHome ?  Container() : IconButton(
-        icon: Icon(Icons.arrow_back, color: Colors.black54),
-        onPressed: () => Navigator.pop(context),
-      );
+      leading: isHome
+          ? Container()
+          : IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.blueGrey,
+              ),
+              onPressed: () => Navigator.pop(context),
+            ),
     );
   }
 
