@@ -8,7 +8,7 @@ import 'package:flutter_implicit_animations/widgets/demo_controllers.dart';
 import 'package:flutter_implicit_animations/widgets/header.dart';
 
 class AnimatedDefaultTextStyleScreen extends StatefulWidget {
-  static String SCREEN_TITLE = "AniamtedDefaultTextStyle";
+  static String SCREEN_TITLE = "AnimatedDefaultTextStyle";
 
   @override
   State<StatefulWidget> createState() {
