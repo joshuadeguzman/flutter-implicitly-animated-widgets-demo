@@ -7,19 +7,19 @@ import 'package:flutter_implicit_animations/widgets/appbar.dart';
 import 'package:flutter_implicit_animations/widgets/demo_controllers.dart';
 import 'package:flutter_implicit_animations/widgets/header.dart';
 
-class AnimatedPaddingScreen extends StatefulWidget {
-  static String SCREEN_TITLE = "AnimatedPadding";
+class AnimatedOpacityScreen extends StatefulWidget {
+  static String SCREEN_TITLE = "AnimatedOpacity";
 
   @override
   State<StatefulWidget> createState() {
-    return AnimatedPaddingScreenState();
+    return AnimatedOpacityScreenState();
   }
 }
 
-class AnimatedPaddingScreenState extends State<AnimatedPaddingScreen> {
-  String get _widgetTitle => AnimatedPaddingScreen.SCREEN_TITLE;
+class AnimatedOpacityScreenState extends State<AnimatedOpacityScreen> {
+  String get _widgetTitle => AnimatedOpacityScreen.SCREEN_TITLE;
   int _animationDuration = 1000;
-  double _padding = 20;
+  double _opacity = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class AnimatedPaddingScreenState extends State<AnimatedPaddingScreen> {
                 Header(
                   title: _widgetTitle,
                   description:
-                      'Animated version of Padding which automatically transitions the indentation over a given duration whenever the given inset changes.',
+                      'Animated version of Opacity which automatically transitions the child\'s opacity over a given duration whenever the given opacity changes.',
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 Text(
@@ -49,28 +49,26 @@ class AnimatedPaddingScreenState extends State<AnimatedPaddingScreen> {
                   ),
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 10)),
-                Container(
-                  color: Colors.blueGrey,
-                  height: 300,
-                  width: 300,
-                  child: AnimatedPadding(
-                    padding: EdgeInsets.all(_padding),
-                    duration: Duration(milliseconds: _animationDuration),
-                    child: Container(
-                      child: FlutterLogo(),
-                    ),
+                AnimatedOpacity(
+                  duration: Duration(milliseconds: _animationDuration),
+                  opacity: _opacity,
+                  child: Container(
+                    color: Colors.blueGrey,
+                    height: 300,
+                    width: 300,
+                    child: FlutterLogo(),
                   ),
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 DemoControllers(
                   animateCallback: () => {
                         setState(() {
-                          _padding = 50;
+                          _opacity = 0;
                         })
                       },
                   restoreStatesCallback: () => {
                         setState(() {
-                          _padding = 20;
+                          _opacity = 1;
                         })
                       },
                 ),

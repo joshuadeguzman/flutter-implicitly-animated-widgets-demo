@@ -7,3 +7,4 @@ export 'animated_cross_fade.dart';
 export 'animated_default_text_style.dart';
 export 'animated_list_state.dart';
 export 'animated_padding.dart';
+export 'animated_opacity.dart';
