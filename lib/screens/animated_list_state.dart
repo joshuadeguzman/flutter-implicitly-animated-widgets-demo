@@ -19,6 +19,7 @@ class AnimatedListStateScreen extends StatefulWidget {
 class AnimatedListStateScreenState extends State<AnimatedListStateScreen> {
   String get _widgetTitle => AnimatedListStateScreen.SCREEN_TITLE;
 
+  int _animationDuration = 500;
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   List<String> _listOfNames = ["Mark", "Elon", "Tim"];
 
@@ -103,7 +104,7 @@ class AnimatedListStateScreenState extends State<AnimatedListStateScreen> {
                             2,
                             (context, animation) =>
                                 _buildListRemoveItem(context, 2, animation),
-                            duration: Duration(milliseconds: 500),
+                            duration: Duration(milliseconds: _animationDuration),
                           );
                           _listOfNames.removeAt(2);
                         },
