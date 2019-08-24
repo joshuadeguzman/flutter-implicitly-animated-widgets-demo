@@ -19,7 +19,7 @@ class AnimatedDefaultTextStyleScreen extends StatefulWidget {
 class AnimatedDefaultTextStyleScreenState
     extends State<AnimatedDefaultTextStyleScreen> {
   String get _widgetTitle => AnimatedDefaultTextStyleScreen.SCREEN_TITLE;
-  final int _animationDuration = 1000;
+  int _animationDuration = 1000;
   TextStyle _textStyle = TextStyle(
     color: Colors.blue,
     fontSize: 30,

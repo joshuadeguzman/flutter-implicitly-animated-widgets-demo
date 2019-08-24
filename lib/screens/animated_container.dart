@@ -18,7 +18,7 @@ class AnimatedContainerScreen extends StatefulWidget {
 
 class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
   String get _widgetTitle => AnimatedContainerScreen.SCREEN_TITLE;
-  final int _animationDuration = 1000;
+  int _animationDuration = 1000;
   Color _backgroundColor = Colors.blueGrey;
   double _height = 300;
   double _width = 300;

@@ -18,7 +18,7 @@ class AnimatedCrossFadeScreen extends StatefulWidget {
 
 class AnimatedCrossFadeScreenState extends State<AnimatedCrossFadeScreen> {
   String get _widgetTitle => AnimatedCrossFadeScreen.SCREEN_TITLE;
-  final int _animationDuration = 1000;
+  int _animationDuration = 1000;
   bool _isShowingFirstWidget = true;
 
   @override
