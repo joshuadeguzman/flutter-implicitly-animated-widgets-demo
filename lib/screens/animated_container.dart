@@ -69,24 +69,28 @@ class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 DemoControllers(
                   animateCallback: () => {
-                        setState(() {
-                          _height = 200;
-                          _width = 200;
-                          _borderRadius = 30;
-                          _backgroundColor = Colors.red;
-                          _padding = 10;
-                        })
+                        setState(
+                          () {
+                            _height = 200;
+                            _width = 200;
+                            _borderRadius = 30;
+                            _backgroundColor = Colors.red;
+                            _padding = 10;
+                          },
+                        )
                       },
                   restoreStatesCallback: () => {
-                        setState(() {
-                          _height = 300;
-                          _width = 300;
-                          _borderRadius = 10;
-                          _backgroundColor = Colors.blueGrey;
-                          _padding = 50;
-                        }),
+                        setState(
+                          () {
+                            _height = 300;
+                            _width = 300;
+                            _borderRadius = 10;
+                            _backgroundColor = Colors.blueGrey;
+                            _padding = 50;
+                          },
+                        ),
                       },
-                )
+                ),
               ],
             ),
           ),
