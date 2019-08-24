@@ -7,24 +7,19 @@ import 'package:flutter_implicit_animations/widgets/appbar.dart';
 import 'package:flutter_implicit_animations/widgets/demo_controllers.dart';
 import 'package:flutter_implicit_animations/widgets/header.dart';
 
-class AnimatedContainerScreen extends StatefulWidget {
-  static String SCREEN_TITLE = "AnimatedContainer";
+class AnimatedCrossFadeScreen extends StatefulWidget {
+  static String SCREEN_TITLE = "AnimatedCrossFade";
 
   @override
   State<StatefulWidget> createState() {
-    return AnimatedContainerScreenState();
+    return AnimatedCrossFadeScreenState();
   }
 }
 
-class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
-  String get _widgetTitle => AnimatedContainerScreen.SCREEN_TITLE;
+class AnimatedCrossFadeScreenState extends State<AnimatedCrossFadeScreen> {
+  String get _widgetTitle => AnimatedCrossFadeScreen.SCREEN_TITLE;
   final int _animationDuration = 1000;
-  Color _backgroundColor = Colors.blueGrey;
-  double _height = 300;
-  double _width = 300;
-  double _borderWidth = 300;
-  double _borderRadius = 10;
-  double _padding = 50;
+  bool _isShowingFirstWidget = true;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +37,7 @@ class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
                 Header(
                   title: _widgetTitle,
                   description:
-                      'A container that gradually changes its values over a period of time.',
+                      'A widget that cross-fades between two given children and animates itself between their sizes.',
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 Text(
@@ -54,38 +49,31 @@ class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
                   ),
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 10)),
-                AnimatedContainer(
-                  height: _height,
-                  width: _width,
-                  padding: EdgeInsets.all(_padding),
-                  decoration: BoxDecoration(
-                    color: _backgroundColor,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(_borderRadius),
-                    ),
-                  ),
+                AnimatedCrossFade(
                   duration: Duration(milliseconds: _animationDuration),
-                  child: FlutterLogo(),
+                  firstChild: FlutterLogo(
+                    style: FlutterLogoStyle.horizontal,
+                    size: 300.0,
+                  ),
+                  secondChild: FlutterLogo(
+                    style: FlutterLogoStyle.stacked,
+                    size: 300.0,
+                  ),
+                  crossFadeState: _isShowingFirstWidget
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 DemoControllers(
                   animateCallback: () => {
                         setState(() {
-                          _height = 200;
-                          _width = 200;
-                          _borderRadius = 30;
-                          _backgroundColor = Colors.red;
-                          _padding = 10;
+                          _isShowingFirstWidget = false;
                         })
                       },
                   restoreStatesCallback: () => {
                         setState(() {
-                          _height = 300;
-                          _width = 300;
-                          _borderRadius = 10;
-                          _backgroundColor = Colors.blueGrey;
-                          _padding = 50;
-                        }),
+                          _isShowingFirstWidget = true;
+                        })
                       },
                 ),
               ],
