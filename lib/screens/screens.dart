@@ -4,3 +4,4 @@
 
 export 'animated_container.dart';
 export 'animated_cross_fade.dart';
+export 'animated_default_text_style.dart';
