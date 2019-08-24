@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_implicit_animations/widgets/appbar.dart';
+import 'package:flutter_implicit_animations/widgets/demo_controllers.dart';
 import 'package:flutter_implicit_animations/widgets/header.dart';
 
 class AnimatedContainerScreen extends StatefulWidget {
@@ -66,53 +67,25 @@ class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
                   child: FlutterLogo(),
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blueGrey,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.play_arrow,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _height = 200;
-                            _width = 200;
-                            _borderRadius = 30;
-                            _backgroundColor = Colors.red;
-                            _padding = 10;
-                          });
-                        },
-                      ),
-                    ),
-                    Padding(padding: EdgeInsets.only(right: 20)),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blueGrey,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.restore,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _height = 300;
-                            _width = 300;
-                            _borderRadius = 10;
-                            _backgroundColor = Colors.blueGrey;
-                            _padding = 50;
-                          });
-                        },
-                      ),
-                    ),
-                  ],
+                DemoControllers(
+                  animateCallback: () => {
+                        setState(() {
+                          _height = 200;
+                          _width = 200;
+                          _borderRadius = 30;
+                          _backgroundColor = Colors.red;
+                          _padding = 10;
+                        })
+                      },
+                  restoreStatesCallback: () => {
+                        setState(() {
+                          _height = 300;
+                          _width = 300;
+                          _borderRadius = 10;
+                          _backgroundColor = Colors.blueGrey;
+                          _padding = 50;
+                        }),
+                      },
                 )
               ],
             ),
