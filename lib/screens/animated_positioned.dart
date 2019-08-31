@@ -7,22 +7,22 @@ import 'package:flutter_implicit_animations/widgets/appbar.dart';
 import 'package:flutter_implicit_animations/widgets/demo_controllers.dart';
 import 'package:flutter_implicit_animations/widgets/header.dart';
 
-class AnimatedPhysicalModelScreen extends StatefulWidget {
-  static String SCREEN_TITLE = "AnimatedPhysicalModel";
+class AnimatedPositionedScreen extends StatefulWidget {
+  static String SCREEN_TITLE = "AnimatedPositioned";
 
   @override
   State<StatefulWidget> createState() {
-    return AnimatedPhysicalModelScreenState();
+    return AnimatedPositionedScreenState();
   }
 }
 
-class AnimatedPhysicalModelScreenState
-    extends State<AnimatedPhysicalModelScreen> {
-  String get _widgetTitle => AnimatedPhysicalModelScreen.SCREEN_TITLE;
+class AnimatedPositionedScreenState extends State<AnimatedPositionedScreen> {
+  String get _widgetTitle => AnimatedPositionedScreen.SCREEN_TITLE;
   int _animationDuration = 1000;
-  Color _widgetColor = Colors.blue;
-  double _elevation = 10;
-  Color _shadowColor = Colors.blue;
+  double _top = 20.0;
+  double _right = 20.0;
+  double _bottom = 20;
+  double _left = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -52,32 +52,50 @@ class AnimatedPhysicalModelScreenState
                   ),
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 10)),
-                AnimatedPhysicalModel(
-                  duration: Duration(milliseconds: _animationDuration),
-                  child: Container(
-                    height: 300,
-                    width: 300,
-                    child: FlutterLogo(),
+                Container(
+                  height: 300,
+                  color: Colors.black,
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Stack(
+                          children: <Widget>[
+                            AnimatedPositioned(
+                              duration:
+                                  Duration(milliseconds: _animationDuration),
+                              child: Container(
+                                color: Colors.red,
+                                height: 50,
+                                width: 50,
+                                child: FlutterLogo(),
+                              ),
+                              top: _top,
+                              right: _right,
+                              bottom: _bottom,
+                              left: _left,
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  shape: BoxShape.rectangle,
-                  color: _widgetColor,
-                  elevation: _elevation,
-                  shadowColor: _shadowColor,
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 DemoControllers(
                   animateCallback: () => {
                         setState(() {
-                          _widgetColor = Colors.yellow;
-                          _elevation = 30;
-                          _shadowColor = Colors.yellow;
+                          _top = 0;
+                          _right = 0;
+                          _bottom = 100;
+                          _left = 200;
                         })
                       },
                   restoreStatesCallback: () => {
                         setState(() {
-                          _widgetColor = Colors.blue;
-                          _elevation = 10;
-                          _shadowColor = Colors.blue;
+                          _top = 100;
+                          _right = 100;
+                          _bottom = 0;
+                          _left = 0;
                         })
                       },
                 ),
