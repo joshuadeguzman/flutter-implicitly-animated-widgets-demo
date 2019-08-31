@@ -18,7 +18,7 @@ class AnimatedPositionedScreen extends StatefulWidget {
 
 class AnimatedPositionedScreenState extends State<AnimatedPositionedScreen> {
   String get _widgetTitle => AnimatedPositionedScreen.SCREEN_TITLE;
-  int _animationDuration = 1000;
+  Duration _animationDuration = Duration(milliseconds: 1000);
   double _top = 20.0;
   double _right = 20.0;
   double _bottom = 20;
@@ -61,8 +61,7 @@ class AnimatedPositionedScreenState extends State<AnimatedPositionedScreen> {
                         child: Stack(
                           children: <Widget>[
                             AnimatedPositioned(
-                              duration:
-                                  Duration(milliseconds: _animationDuration),
+                              duration: _animationDuration,
                               child: Container(
                                 color: Colors.red,
                                 height: 50,
