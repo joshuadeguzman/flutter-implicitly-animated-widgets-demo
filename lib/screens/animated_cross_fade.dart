@@ -18,7 +18,7 @@ class AnimatedCrossFadeScreen extends StatefulWidget {
 
 class AnimatedCrossFadeScreenState extends State<AnimatedCrossFadeScreen> {
   String get _widgetTitle => AnimatedCrossFadeScreen.SCREEN_TITLE;
-  int _animationDuration = 1000;
+  Duration _animationDuration = Duration(milliseconds: 1000);
   bool _isShowingFirstWidget = true;
 
   @override
@@ -50,7 +50,7 @@ class AnimatedCrossFadeScreenState extends State<AnimatedCrossFadeScreen> {
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 10)),
                 AnimatedCrossFade(
-                  duration: Duration(milliseconds: _animationDuration),
+                  duration: _animationDuration,
                   firstChild: FlutterLogo(
                     style: FlutterLogoStyle.horizontal,
                     size: 300.0,

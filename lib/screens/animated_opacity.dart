@@ -18,7 +18,7 @@ class AnimatedOpacityScreen extends StatefulWidget {
 
 class AnimatedOpacityScreenState extends State<AnimatedOpacityScreen> {
   String get _widgetTitle => AnimatedOpacityScreen.SCREEN_TITLE;
-  int _animationDuration = 1000;
+  Duration _animationDuration = Duration(milliseconds: 1000);
   double _opacity = 1;
 
   @override
@@ -50,7 +50,7 @@ class AnimatedOpacityScreenState extends State<AnimatedOpacityScreen> {
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 10)),
                 AnimatedOpacity(
-                  duration: Duration(milliseconds: _animationDuration),
+                  duration: _animationDuration,
                   opacity: _opacity,
                   child: Container(
                     color: Colors.blueGrey,

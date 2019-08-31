@@ -19,7 +19,7 @@ class AnimatedPhysicalModelScreen extends StatefulWidget {
 class AnimatedPhysicalModelScreenState
     extends State<AnimatedPhysicalModelScreen> {
   String get _widgetTitle => AnimatedPhysicalModelScreen.SCREEN_TITLE;
-  int _animationDuration = 1000;
+  Duration _animationDuration = Duration(milliseconds: 1000);
   Color _widgetColor = Colors.blue;
   double _elevation = 10;
   Color _shadowColor = Colors.blue;
@@ -53,7 +53,7 @@ class AnimatedPhysicalModelScreenState
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 10)),
                 AnimatedPhysicalModel(
-                  duration: Duration(milliseconds: _animationDuration),
+                  duration: _animationDuration,
                   child: Container(
                     height: 300,
                     width: 300,

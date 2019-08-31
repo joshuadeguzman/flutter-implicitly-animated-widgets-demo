@@ -18,7 +18,7 @@ class AnimatedPaddingScreen extends StatefulWidget {
 
 class AnimatedPaddingScreenState extends State<AnimatedPaddingScreen> {
   String get _widgetTitle => AnimatedPaddingScreen.SCREEN_TITLE;
-  int _animationDuration = 1000;
+  Duration _animationDuration = Duration(milliseconds: 1000);
   double _padding = 20;
 
   @override
@@ -54,8 +54,8 @@ class AnimatedPaddingScreenState extends State<AnimatedPaddingScreen> {
                   height: 300,
                   width: 300,
                   child: AnimatedPadding(
+                    duration: _animationDuration,
                     padding: EdgeInsets.all(_padding),
-                    duration: Duration(milliseconds: _animationDuration),
                     child: Container(
                       child: FlutterLogo(),
                     ),

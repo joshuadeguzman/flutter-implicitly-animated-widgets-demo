@@ -19,7 +19,7 @@ class AnimatedSizeScreen extends StatefulWidget {
 class AnimatedSizeScreenState extends State<AnimatedSizeScreen>
     with TickerProviderStateMixin {
   String get _widgetTitle => AnimatedSizeScreen.SCREEN_TITLE;
-  int _animationDuration = 1000;
+  Duration _animationDuration = Duration(milliseconds: 1000);
   Color _color = Colors.blueGrey;
   double _height = 300;
   double _width = 300;
@@ -53,7 +53,7 @@ class AnimatedSizeScreenState extends State<AnimatedSizeScreen>
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 10)),
                 AnimatedSize(
-                  duration: Duration(milliseconds: _animationDuration),
+                  duration: _animationDuration,
                   vsync: this,
                   child: Container(
                     width: _width,

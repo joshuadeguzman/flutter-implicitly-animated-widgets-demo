@@ -18,11 +18,10 @@ class AnimatedContainerScreen extends StatefulWidget {
 
 class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
   String get _widgetTitle => AnimatedContainerScreen.SCREEN_TITLE;
-  int _animationDuration = 1000;
+  Duration _animationDuration = Duration(milliseconds: 1000);
   Color _backgroundColor = Colors.blueGrey;
   double _height = 300;
   double _width = 300;
-  double _borderWidth = 300;
   double _borderRadius = 10;
   double _padding = 50;
 
@@ -55,6 +54,7 @@ class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 10)),
                 AnimatedContainer(
+                  duration: _animationDuration,
                   height: _height,
                   width: _width,
                   padding: EdgeInsets.all(_padding),
@@ -64,7 +64,6 @@ class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
                       Radius.circular(_borderRadius),
                     ),
                   ),
-                  duration: Duration(milliseconds: _animationDuration),
                   child: FlutterLogo(),
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),

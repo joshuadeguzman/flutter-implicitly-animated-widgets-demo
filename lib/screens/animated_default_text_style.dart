@@ -19,7 +19,7 @@ class AnimatedDefaultTextStyleScreen extends StatefulWidget {
 class AnimatedDefaultTextStyleScreenState
     extends State<AnimatedDefaultTextStyleScreen> {
   String get _widgetTitle => AnimatedDefaultTextStyleScreen.SCREEN_TITLE;
-  int _animationDuration = 1000;
+  Duration _animationDuration = Duration(milliseconds: 1000);
   TextStyle _textStyle = TextStyle(
     color: Colors.blue,
     fontSize: 30,
@@ -54,11 +54,11 @@ class AnimatedDefaultTextStyleScreenState
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 10)),
                 AnimatedDefaultTextStyle(
+                  duration: _animationDuration,
                   child: Text(
                     'Hello Flutter World!',
                     textAlign: TextAlign.center,
                   ),
-                  duration: Duration(milliseconds: _animationDuration),
                   style: _textStyle,
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
