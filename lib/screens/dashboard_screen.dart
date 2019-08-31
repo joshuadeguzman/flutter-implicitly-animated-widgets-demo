@@ -65,8 +65,8 @@ class DashboardScreenState extends State<DashboardScreen> {
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 10)),
                 _buildWidgetSelectorButton(
-                  AnimatedContainerScreen.SCREEN_TITLE,
-                  AnimatedContainerScreen(),
+                  AnimatedPhysicalModelScreen.SCREEN_TITLE,
+                  AnimatedPhysicalModelScreen(),
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 10)),
                 _buildWidgetSelectorButton(
