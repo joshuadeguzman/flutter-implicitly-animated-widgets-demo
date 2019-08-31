@@ -20,7 +20,6 @@ class AnimatedPhysicalModelScreenState
     extends State<AnimatedPhysicalModelScreen> {
   String get _widgetTitle => AnimatedPhysicalModelScreen.SCREEN_TITLE;
   int _animationDuration = 1000;
-  BoxShape _shape = BoxShape.rectangle;
   Color _widgetColor = Colors.blue;
   double _elevation = 10;
   Color _shadowColor = Colors.blue;
@@ -60,9 +59,9 @@ class AnimatedPhysicalModelScreenState
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     height: 300,
                     width: 300,
-                    child: Container(),
+                    child: FlutterLogo(),
                   ),
-                  shape: _shape,
+                  shape: BoxShape.rectangle,
                   color: _widgetColor,
                   elevation: _elevation,
                   shadowColor: _shadowColor,
@@ -71,7 +70,6 @@ class AnimatedPhysicalModelScreenState
                 DemoControllers(
                   animateCallback: () => {
                         setState(() {
-                          _shape = BoxShape.circle;
                           _widgetColor = Colors.yellow;
                           _elevation = 30;
                           _shadowColor = Colors.yellow;
@@ -79,7 +77,6 @@ class AnimatedPhysicalModelScreenState
                       },
                   restoreStatesCallback: () => {
                         setState(() {
-                          _shape = BoxShape.rectangle;
                           _widgetColor = Colors.blue;
                           _elevation = 10;
                           _shadowColor = Colors.blue;
