@@ -73,21 +73,6 @@ class DashboardScreenState extends State<DashboardScreen> {
                   AnimatedPositionedScreen.SCREEN_TITLE,
                   AnimatedPositionedScreen(),
                 ),
-                Padding(padding: EdgeInsets.only(bottom: 10)),
-                _buildWidgetSelectorButton(
-                  AnimatedContainerScreen.SCREEN_TITLE,
-                  AnimatedContainerScreen(),
-                ),
-                Padding(padding: EdgeInsets.only(bottom: 10)),
-                _buildWidgetSelectorButton(
-                  AnimatedContainerScreen.SCREEN_TITLE,
-                  AnimatedContainerScreen(),
-                ),
-                Padding(padding: EdgeInsets.only(bottom: 10)),
-                _buildWidgetSelectorButton(
-                  AnimatedContainerScreen.SCREEN_TITLE,
-                  AnimatedContainerScreen(),
-                )
               ],
             ),
           ),
