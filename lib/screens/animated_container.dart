@@ -25,6 +25,14 @@ class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
   double _borderRadius = 10;
   double _padding = 50;
 
+  // TODO: For Animated Bar Chart example, migrate to other screen
+  // double _barChart1Height = 50;
+  // double _barChart2Height = 100;
+  // double _barChart3Height = 30;
+  // double _barChart4Width = 10;
+  // double _barChart5Width = 70;
+  // double _barChart6Width = 20;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,6 +74,89 @@ class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
                   ),
                   child: FlutterLogo(),
                 ),
+                // TODO: Migrate to a separate screen / widget view
+                // Padding(padding: EdgeInsets.only(bottom: 10)),
+                // Text(
+                //   'Animated Bar Charts',
+                //   style: TextStyle(
+                //     fontSize: 20,
+                //     fontWeight: FontWeight.bold,
+                //     color: Colors.blueGrey,
+                //   ),
+                // ),
+                // Padding(padding: EdgeInsets.only(bottom: 10)),
+                // Container(
+                //   height: 300,
+                //   child: Row(
+                //     crossAxisAlignment: CrossAxisAlignment.end,
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: <Widget>[
+                //       AnimatedContainer(
+                //         duration: _animationDuration,
+                //         height: _barChart1Height,
+                //         width: 50,
+                //         padding: EdgeInsets.all(_padding),
+                //         color: Colors.blue,
+                //         child: Container(),
+                //       ),
+                //       Padding(padding: EdgeInsets.only(right: 10)),
+                //       AnimatedContainer(
+                //         duration: _animationDuration,
+                //         height: _barChart2Height,
+                //         width: 50,
+                //         padding: EdgeInsets.all(_padding),
+                //         color: Colors.lightGreen,
+                //         child: Container(),
+                //       ),
+                //       Padding(padding: EdgeInsets.only(right: 10)),
+                //       AnimatedContainer(
+                //         duration: _animationDuration,
+                //         height: _barChart3Height,
+                //         width: 50,
+                //         padding: EdgeInsets.all(_padding),
+                //         color: Colors.red,
+                //         child: Container(),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Container(
+                //   height: 300,
+                //   width: 350,
+                //   child: Column(
+                //     mainAxisSize: MainAxisSize.max,
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: <Widget>[
+                //       AnimatedContainer(
+                //         duration: _animationDuration,
+                //         height: 50,
+                //         width: _barChart4Width,
+                //         padding: EdgeInsets.all(_padding),
+                //         color: Colors.orangeAccent,
+                //         child: Container(),
+                //       ),
+                //       Padding(padding: EdgeInsets.only(bottom: 10)),
+                //       AnimatedContainer(
+                //         duration: _animationDuration,
+                //         height: 50,
+                //         width: _barChart5Width,
+                //         padding: EdgeInsets.all(_padding),
+                //         color: Colors.pinkAccent,
+                //         child: Container(),
+                //       ),
+                //       Padding(padding: EdgeInsets.only(bottom: 10)),
+                //       AnimatedContainer(
+                //         duration: _animationDuration,
+                //         height: 50,
+                //         width: _barChart6Width,
+                //         padding: EdgeInsets.all(_padding),
+                //         color: Colors.purpleAccent,
+                //         child: Container(),
+                //       ),
+                //     ],
+                //   ),
+                // ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 DemoControllers(
                   animateCallback: () => {
@@ -75,6 +166,15 @@ class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
                           _borderRadius = 30;
                           _backgroundColor = Colors.red;
                           _padding = 10;
+
+                          // TODO: For Animated Bar Chart example, migrate to other screen
+                          // _barChart1Height = 100;
+                          // _barChart2Height = 200;
+                          // _barChart3Height = 10;
+
+                          // _barChart4Width = 320;
+                          // _barChart5Width = 350;
+                          // _barChart6Width = 180;
                         })
                       },
                   restoreStatesCallback: () => {
@@ -84,6 +184,15 @@ class AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
                           _borderRadius = 10;
                           _backgroundColor = Colors.blueGrey;
                           _padding = 50;
+
+                          // TODO: For Animated Bar Chart example, migrate to other screen
+                          // _barChart1Height = 50;
+                          // _barChart2Height = 20;
+                          // _barChart3Height = 100;
+
+                          // _barChart4Width = 160;
+                          // _barChart5Width = 170;
+                          // _barChart6Width = 230;
                         }),
                       },
                 ),
