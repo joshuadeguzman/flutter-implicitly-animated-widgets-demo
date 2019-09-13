@@ -19,9 +19,13 @@ class AnimatedBarChartsScreen extends StatefulWidget {
 class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
   String get _widgetTitle => AnimatedBarChartsScreen.SCREEN_TITLE;
   bool _isLoadingBarChart = true;
-  double _barChart1Height = 50;
-  double _barChart2Height = 100;
-  double _barChart3Height = 30;
+  double _barChart1Height = 150;
+  double _barChart2Height = 150;
+  double _barChart3Height = 100;
+  Color _barChart1Color = Colors.blue;
+  Color _barChart2Color = Colors.orange;
+  Color _barChart3Color = Colors.green;
+  TextStyle _barChartLabel = TextStyle(color: Colors.black54, fontSize: 10);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +47,7 @@ class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 AnimatedCrossFade(
-                  duration: Duration(milliseconds: 1000),
+                  duration: Duration(milliseconds: 500),
                   firstChild: _buildLoadingIndicators(),
                   secondChild: _buildBarCharts(),
                   crossFadeState: _isLoadingBarChart
@@ -57,11 +61,22 @@ class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
                       _isLoadingBarChart = true;
                     });
 
-                    Future.delayed(const Duration(milliseconds: 1000), () {
+                    Future.delayed(const Duration(milliseconds: 500), () {
                       setState(() {
-                        _barChart1Height = 100;
-                        _barChart2Height = 200;
-                        _barChart3Height = 10;
+                        _barChart1Height = 270;
+                        _barChart2Height = 350;
+                        _barChart3Height = 40;
+
+                        _barChart1Color = Colors.blueAccent;
+                        _barChart2Color = Colors.orangeAccent;
+                        _barChart3Color = Colors.greenAccent;
+
+                        _barChartLabel = TextStyle(
+                          color: Colors.black54,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        );
+
                         _isLoadingBarChart = false;
                       });
                     });
@@ -71,11 +86,22 @@ class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
                       _isLoadingBarChart = true;
                     });
 
-                    Future.delayed(const Duration(milliseconds: 1000), () {
+                    Future.delayed(const Duration(milliseconds: 500), () {
                       setState(() {
-                        _barChart1Height = 50;
-                        _barChart2Height = 20;
-                        _barChart3Height = 100;
+                        _barChart1Height = 90;
+                        _barChart2Height = 170;
+                        _barChart3Height = 300;
+
+                        _barChart1Color = Colors.blue;
+                        _barChart2Color = Colors.orange;
+                        _barChart3Color = Colors.green;
+
+                        _barChartLabel = TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.normal
+                        );
+
                         _isLoadingBarChart = false;
                       });
                     });
@@ -91,7 +117,7 @@ class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
 
   Widget _buildLoadingIndicators() {
     return Container(
-      height: 250,
+      height: 400,
       child: Center(
         child: CircularProgressIndicator(),
       ),
@@ -100,7 +126,7 @@ class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
 
   Widget _buildBarCharts() {
     return Container(
-      height: 250,
+      height: 400,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -108,28 +134,64 @@ class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
           AnimatedContainer(
             duration: Duration(milliseconds: 500),
             height: _barChart1Height,
-            width: 50,
-            padding: EdgeInsets.all(20),
-            color: Colors.blue,
-            child: Container(),
+            width: 75,
+            color: _barChart1Color,
+            child: Container(
+              padding: EdgeInsets.only(bottom: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  AnimatedDefaultTextStyle(
+                    curve: Curves.bounceInOut,
+                    duration: Duration(milliseconds: 500),
+                    child: Text('Blue'),
+                    style: _barChartLabel,
+                  ),
+                ],
+              ),
+            ),
           ),
           Padding(padding: EdgeInsets.only(right: 10)),
           AnimatedContainer(
             duration: Duration(milliseconds: 500),
             height: _barChart2Height,
-            width: 50,
-            padding: EdgeInsets.all(20),
-            color: Colors.lightGreen,
-            child: Container(),
+            width: 75,
+            color: _barChart2Color,
+            child: Container(
+              padding: EdgeInsets.only(bottom: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  AnimatedDefaultTextStyle(
+                    curve: Curves.bounceInOut,
+                    duration: Duration(milliseconds: 500),
+                    child: Text('Orange'),
+                    style: _barChartLabel,
+                  ),
+                ],
+              ),
+            ),
           ),
           Padding(padding: EdgeInsets.only(right: 10)),
           AnimatedContainer(
             duration: Duration(milliseconds: 500),
             height: _barChart3Height,
-            width: 50,
-            padding: EdgeInsets.all(20),
-            color: Colors.red,
-            child: Container(),
+            width: 75,
+            color: _barChart3Color,
+            child: Container(
+              padding: EdgeInsets.only(bottom: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  AnimatedDefaultTextStyle(
+                    curve: Curves.bounceInOut,
+                    duration: Duration(milliseconds: 500),
+                    child: Text('Green'),
+                    style: _barChartLabel,
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
