@@ -11,3 +11,4 @@ export 'animated_opacity.dart';
 export 'animated_size.dart';
 export 'animated_physical_model.dart';
 export 'animated_positioned.dart';
+export 'animated_bar_charts.dart';
