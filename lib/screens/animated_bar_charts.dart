@@ -16,18 +16,12 @@ class AnimatedBarChartsScreen extends StatefulWidget {
   }
 }
 
-class AnimatedBarChartsScreenState
-    extends State<AnimatedBarChartsScreen> {
+class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
   String get _widgetTitle => AnimatedBarChartsScreen.SCREEN_TITLE;
-  Duration _animationDuration = Duration(milliseconds: 1000);
-  double _padding = 50;
-
+  bool _isLoadingBarChart = true;
   double _barChart1Height = 50;
   double _barChart2Height = 100;
   double _barChart3Height = 30;
-  double _barChart4Width = 10;
-  double _barChart5Width = 70;
-  double _barChart6Width = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -48,62 +42,96 @@ class AnimatedBarChartsScreenState
                       'Custom bar charts created using Flutter Animations.',
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
-                Container(
-                  height: 250,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      AnimatedContainer(
-                        duration: _animationDuration,
-                        height: _barChart1Height,
-                        width: 50,
-                        padding: EdgeInsets.all(_padding),
-                        color: Colors.blue,
-                        child: Container(),
-                      ),
-                      Padding(padding: EdgeInsets.only(right: 10)),
-                      AnimatedContainer(
-                        duration: _animationDuration,
-                        height: _barChart2Height,
-                        width: 50,
-                        padding: EdgeInsets.all(_padding),
-                        color: Colors.lightGreen,
-                        child: Container(),
-                      ),
-                      Padding(padding: EdgeInsets.only(right: 10)),
-                      AnimatedContainer(
-                        duration: _animationDuration,
-                        height: _barChart3Height,
-                        width: 50,
-                        padding: EdgeInsets.all(_padding),
-                        color: Colors.red,
-                        child: Container(),
-                      ),
-                    ],
-                  ),
+                AnimatedCrossFade(
+                  duration: Duration(milliseconds: 1000),
+                  firstChild: _buildLoadingIndicators(),
+                  secondChild: _buildBarCharts(),
+                  crossFadeState: _isLoadingBarChart
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 DemoControllers(
-                  animateCallback: () => {
+                  animateCallback: () {
                     setState(() {
-                      _barChart1Height = 100;
-                      _barChart2Height = 200;
-                      _barChart3Height = 10;
-                    })
+                      _isLoadingBarChart = true;
+                    });
+
+                    Future.delayed(const Duration(milliseconds: 1000), () {
+                      setState(() {
+                        _barChart1Height = 100;
+                        _barChart2Height = 200;
+                        _barChart3Height = 10;
+                        _isLoadingBarChart = false;
+                      });
+                    });
                   },
-                  restoreStatesCallback: () => {
+                  restoreStatesCallback: () {
                     setState(() {
-                      _barChart1Height = 50;
-                      _barChart2Height = 20;
-                      _barChart3Height = 100;
-                    }),
+                      _isLoadingBarChart = true;
+                    });
+
+                    Future.delayed(const Duration(milliseconds: 1000), () {
+                      setState(() {
+                        _barChart1Height = 50;
+                        _barChart2Height = 20;
+                        _barChart3Height = 100;
+                        _isLoadingBarChart = false;
+                      });
+                    });
                   },
                 ),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildLoadingIndicators() {
+    return Container(
+      height: 250,
+      child: Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+  }
+
+  Widget _buildBarCharts() {
+    return Container(
+      height: 250,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          AnimatedContainer(
+            duration: Duration(milliseconds: 500),
+            height: _barChart1Height,
+            width: 50,
+            padding: EdgeInsets.all(20),
+            color: Colors.blue,
+            child: Container(),
+          ),
+          Padding(padding: EdgeInsets.only(right: 10)),
+          AnimatedContainer(
+            duration: Duration(milliseconds: 500),
+            height: _barChart2Height,
+            width: 50,
+            padding: EdgeInsets.all(20),
+            color: Colors.lightGreen,
+            child: Container(),
+          ),
+          Padding(padding: EdgeInsets.only(right: 10)),
+          AnimatedContainer(
+            duration: Duration(milliseconds: 500),
+            height: _barChart3Height,
+            width: 50,
+            padding: EdgeInsets.all(20),
+            color: Colors.red,
+            child: Container(),
+          ),
+        ],
       ),
     );
   }
