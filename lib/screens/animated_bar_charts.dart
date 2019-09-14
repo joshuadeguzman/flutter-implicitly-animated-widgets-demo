@@ -51,7 +51,7 @@ class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 AnimatedCrossFade(
                   duration: Duration(milliseconds: 500),
-                  firstChild: _buildLoadingIndicators(),
+                  firstChild: _buildLoadingIndicator(),
                   secondChild: _buildBarCharts(),
                   crossFadeState: _isLoadingBarChart
                       ? CrossFadeState.showFirst
@@ -125,7 +125,7 @@ class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
     );
   }
 
-  Widget _buildLoadingIndicators() {
+  Widget _buildLoadingIndicator() {
     return Container(
       height: 400,
       child: Center(
