@@ -40,7 +40,7 @@ class AnimatedPositionedScreenState extends State<AnimatedPositionedScreen> {
                 Header(
                   title: _widgetTitle,
                   description:
-                      'A widget representing a physical layer that clips its children to a shape.',
+                      'Animated version of Positioned which automatically transitions the child\'s position over a given duration whenever the given position changes.',
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 Text(
@@ -54,7 +54,7 @@ class AnimatedPositionedScreenState extends State<AnimatedPositionedScreen> {
                 Padding(padding: EdgeInsets.only(bottom: 10)),
                 Container(
                   height: 300,
-                  color: Colors.black,
+                  color: Colors.blueAccent,
                   child: Row(
                     children: <Widget>[
                       Expanded(
@@ -63,7 +63,7 @@ class AnimatedPositionedScreenState extends State<AnimatedPositionedScreen> {
                             AnimatedPositioned(
                               duration: _animationDuration,
                               child: Container(
-                                color: Colors.red,
+                                color: Colors.orangeAccent,
                                 height: 50,
                                 width: 50,
                                 child: FlutterLogo(),
