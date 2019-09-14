@@ -20,7 +20,6 @@ class AnimatedSizeScreenState extends State<AnimatedSizeScreen>
     with TickerProviderStateMixin {
   String get _widgetTitle => AnimatedSizeScreen.SCREEN_TITLE;
   Duration _animationDuration = Duration(milliseconds: 1000);
-  Color _color = Colors.blueGrey;
   double _height = 300;
   double _width = 300;
 
@@ -40,7 +39,7 @@ class AnimatedSizeScreenState extends State<AnimatedSizeScreen>
                 Header(
                   title: _widgetTitle,
                   description:
-                      'Animated version of Padding which automatically transitions the indentation over a given duration whenever the given inset changes.',
+                      'Animated widget that automatically transitions its size over a given duration whenever the given child\'s size changes.',
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 Text(
@@ -58,21 +57,20 @@ class AnimatedSizeScreenState extends State<AnimatedSizeScreen>
                   child: Container(
                     width: _width,
                     height: _height,
-                    color: _color,
+                    color: Colors.blueAccent,
                   ),
+                  curve: Curves.elasticInOut,
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 20)),
                 DemoControllers(
                   animateCallback: () => {
                         setState(() {
-                          _color = Colors.blue;
                           _width = 200;
-                          _height = 20;
+                          _height = 50;
                         })
                       },
                   restoreStatesCallback: () => {
                         setState(() {
-                          _color = Colors.blueGrey;
                           _width = 300;
                           _height = 300;
                         })
