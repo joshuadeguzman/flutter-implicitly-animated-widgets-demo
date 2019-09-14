@@ -28,6 +28,9 @@ class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
   double _barChart1PaddingTop = 60;
   double _barChart2PaddingTop = 20;
   double _barChart3PaddingTop = 240;
+  double _barChart1Position = 0;
+  double _barChart2Position = 75;
+  double _barChart3Position = 150;
   TextStyle _barChartLabel = TextStyle(color: Colors.black54, fontSize: 10);
 
   @override
@@ -84,6 +87,10 @@ class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
                         _barChart2PaddingTop = 250;
                         _barChart3PaddingTop = 20;
 
+                        _barChart1Position = 50;
+                        _barChart2Position = 150;
+                        _barChart3Position = 250;
+
                         _isLoadingBarChart = false;
                       });
                     });
@@ -112,6 +119,10 @@ class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
                             fontSize: 10,
                             fontWeight: FontWeight.normal);
 
+                        _barChart1Position = 0;
+                        _barChart2Position = 75;
+                        _barChart3Position = 150;
+
                         _isLoadingBarChart = false;
                       });
                     });
@@ -137,83 +148,98 @@ class AnimatedBarChartsScreenState extends State<AnimatedBarChartsScreen> {
   Widget _buildBarCharts() {
     return Container(
       height: 400,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.center,
+      width: double.infinity,
+      child: Stack(
         children: <Widget>[
-          AnimatedContainer(
-            duration: Duration(milliseconds: 500),
-            height: _barChart1Height,
-            width: 75,
-            color: _barChart1Color,
-            child: AnimatedPadding(
+          AnimatedPositioned(
+            curve: Curves.fastOutSlowIn,
+            duration: Duration(milliseconds: 1000),
+            left: _barChart1Position,
+            bottom: 0,
+            child: AnimatedContainer(
               duration: Duration(milliseconds: 500),
-              padding: EdgeInsets.only(top: _barChart1PaddingTop),
-              child: Container(
-                color: Colors.black12,
-                padding: EdgeInsets.only(bottom: 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    AnimatedDefaultTextStyle(
-                      curve: Curves.bounceInOut,
-                      duration: Duration(milliseconds: 500),
-                      child: Text('Blue'),
-                      style: _barChartLabel,
-                    ),
-                  ],
+              height: _barChart1Height,
+              width: 75,
+              color: _barChart1Color,
+              child: AnimatedPadding(
+                duration: Duration(milliseconds: 500),
+                padding: EdgeInsets.only(top: _barChart1PaddingTop),
+                child: Container(
+                  color: Colors.black12,
+                  padding: EdgeInsets.only(bottom: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      AnimatedDefaultTextStyle(
+                        curve: Curves.bounceInOut,
+                        duration: Duration(milliseconds: 500),
+                        child: Text('Blue'),
+                        style: _barChartLabel,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-          Padding(padding: EdgeInsets.only(right: 10)),
-          AnimatedContainer(
-            duration: Duration(milliseconds: 500),
-            height: _barChart2Height,
-            width: 75,
-            color: _barChart2Color,
-            child: AnimatedPadding(
+          AnimatedPositioned(
+            curve: Curves.fastOutSlowIn,
+            duration: Duration(milliseconds: 1000),
+            left: _barChart2Position,
+            bottom: 0,
+            child: AnimatedContainer(
               duration: Duration(milliseconds: 500),
-              padding: EdgeInsets.only(top: _barChart2PaddingTop),
-              child: Container(
-                color: Colors.black12,
-                padding: EdgeInsets.only(bottom: 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    AnimatedDefaultTextStyle(
-                      curve: Curves.bounceInOut,
-                      duration: Duration(milliseconds: 500),
-                      child: Text('Orange'),
-                      style: _barChartLabel,
-                    ),
-                  ],
+              height: _barChart2Height,
+              width: 75,
+              color: _barChart2Color,
+              child: AnimatedPadding(
+                duration: Duration(milliseconds: 500),
+                padding: EdgeInsets.only(top: _barChart2PaddingTop),
+                child: Container(
+                  color: Colors.black12,
+                  padding: EdgeInsets.only(bottom: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      AnimatedDefaultTextStyle(
+                        curve: Curves.bounceInOut,
+                        duration: Duration(milliseconds: 500),
+                        child: Text('Orange'),
+                        style: _barChartLabel,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-          Padding(padding: EdgeInsets.only(right: 10)),
-          AnimatedContainer(
-            duration: Duration(milliseconds: 500),
-            height: _barChart3Height,
-            width: 75,
-            color: _barChart3Color,
-            child: AnimatedPadding(
+          AnimatedPositioned(
+            curve: Curves.fastOutSlowIn,
+            duration: Duration(milliseconds: 1000),
+            left: _barChart3Position,
+            bottom: 0,
+            child: AnimatedContainer(
               duration: Duration(milliseconds: 500),
-              padding: EdgeInsets.only(top: _barChart3PaddingTop),
-              child: Container(
-                color: Colors.black12,
-                padding: EdgeInsets.only(bottom: 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    AnimatedDefaultTextStyle(
-                      curve: Curves.bounceInOut,
-                      duration: Duration(milliseconds: 500),
-                      child: Text('Green'),
-                      style: _barChartLabel,
-                    ),
-                  ],
+              height: _barChart3Height,
+              width: 75,
+              color: _barChart3Color,
+              child: AnimatedPadding(
+                duration: Duration(milliseconds: 500),
+                padding: EdgeInsets.only(top: _barChart3PaddingTop),
+                child: Container(
+                  color: Colors.black12,
+                  padding: EdgeInsets.only(bottom: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      AnimatedDefaultTextStyle(
+                        curve: Curves.bounceInOut,
+                        duration: Duration(milliseconds: 500),
+                        child: Text('Green'),
+                        style: _barChartLabel,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

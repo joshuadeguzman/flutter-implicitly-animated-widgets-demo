@@ -61,6 +61,7 @@ class AnimatedPositionedScreenState extends State<AnimatedPositionedScreen> {
                         child: Stack(
                           children: <Widget>[
                             AnimatedPositioned(
+                              curve: Curves.fastLinearToSlowEaseIn,
                               duration: _animationDuration,
                               child: Container(
                                 color: Colors.orangeAccent,
